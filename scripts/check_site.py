@@ -31,14 +31,15 @@ page = (ROOT / "index.html").read_text()
 references = References()
 references.feed(page)
 repo = "https://github.com/pubky/pubky-chromium"
-mac_tag = "pubky-macos-156.0.8073.3"
-mac_asset = "pubky-chromium-156.0.8073.3-macos-arm64.zip"
+mac_tag = "pubky-macos-156.0.8073.4"
+mac_asset = "pubky-chromium-156.0.8073.4-macos-arm64.zip"
 windows_tag = "pubky-windows-156.0.8073.4"
 windows_asset = "pubky-chromium-156.0.8073.4-windows-x64-mini-installer.exe"
 assert f"{repo}/releases/download/{mac_tag}/{mac_asset}" in references.links
 assert f"{repo}/releases/download/pubky-linux-${{version}}/pubky-chromium_${{version}}-1_amd64.deb" in page
 assert f"{repo}/releases/download/{windows_tag}/{windows_asset}" in references.links
-assert f"{repo}/commit/e8c5d30f605f322b1f4688e1f2cb42d54ddc305b" in references.links
+assert f"{repo}/commit/d48d707dcc2d8343f1c54ad1bff456d2621a1929" in references.links
+assert f"{repo}/commit/e8c5d30f605f322b1f4688e1f2cb42d54ddc305b" not in references.links
 assert f"{repo}/commit/d48d707dcc2d8343f1c54ad1bff456d2621a1929" in references.links
 assert f"{repo}/commit/d48d707dcc2d8343f1c54ad1bff456d2621a1929" in references.links
 assert re.search(r'<code id="mac-sha256">[a-f0-9]{64}</code>', page)

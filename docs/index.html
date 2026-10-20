@@ -30,11 +30,8 @@
             <strong>Install on Debian/Ubuntu</strong>
             <div class="install-commands">
               <button class="copy-install" type="button" aria-label="Copy Linux install commands">Copy commands</button>
-              <pre><code id="linux-install">version=156.0.8073.4
-wget "https://github.com/pubky/pubky-chromium/releases/download/pubky-linux-${version}/pubky-chromium_${version}-1_amd64.deb"
-wget "https://github.com/pubky/pubky-chromium/releases/download/pubky-linux-${version}/SHA256SUMS.txt"
-sha256sum -c SHA256SUMS.txt --ignore-missing
-sudo apt install "./pubky-chromium_${version}-1_amd64.deb"</code></pre>
+              <pre><code id="linux-install">wget "https://github.com/pubky/pubky-chromium/releases/download/pubky-linux-156.0.8073.4/pubky-chromium_156.0.8073.4-1_amd64.deb"
+sudo apt install "./pubky-chromium_156.0.8073.4-1_amd64.deb"</code></pre>
               <span class="copy-status" role="status" aria-live="polite"></span>
             </div>
             <p class="install-note">Ubuntu App Center shows a generic “Unknown publisher” warning for any local .deb; terminal install avoids it.</p>

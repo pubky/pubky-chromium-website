@@ -58,7 +58,8 @@ assert "Before you install" not in page and "Install a separate test copy" not i
 assert page.count('class="download"') == 2
 assert "version=" not in page and "SHA256SUMS" not in page and "sha256sum" not in page
 assert "Unknown publisher" in page and "terminal install avoids it" in page
-assert "Not notarized yet" in page and "Privacy &amp; Security" in page
+assert "Not notarized yet" not in page and "Privacy &amp; Security" not in page
+assert "0b2131900068ad5be66a1f065105c972e8e298914fdeebe46521ae50efec481a" in page
 assert "pubky-newtab-dark.png" not in page and not (ROOT / "assets" / "pubky-newtab-dark.png").exists()
 assert "github.com/MCarlomagno" not in page
 assert references.images and all(not urlsplit(ref).scheme for ref in references.images)

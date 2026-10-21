@@ -31,12 +31,12 @@ page = (ROOT / "index.html").read_text()
 references = References()
 references.feed(page)
 repo = "https://github.com/pubky/pubky-chromium"
-mac_tag = "pubky-macos-156.0.8073.4"
-mac_asset = "pubky-chromium-156.0.8073.4-macos-arm64.zip"
+mac_tag = "pubky-macos-156.0.8073.5"
+mac_asset = "pubky-chromium-156.0.8073.5-macos-arm64.zip"
 windows_tag = "pubky-windows-156.0.8073.4"
 windows_asset = "pubky-chromium-156.0.8073.4-windows-x64-mini-installer.exe"
-linux_tag = "pubky-linux-156.0.8073.4"
-linux_asset = "pubky-chromium_156.0.8073.4-1_amd64.deb"
+linux_tag = "pubky-linux-156.0.8073.5"
+linux_asset = "pubky-chromium_156.0.8073.5-1_amd64.deb"
 assert f"{repo}/releases/download/{mac_tag}/{mac_asset}" in references.links
 install = re.search(r'<code id="linux-install">(.*?)</code>', page, re.S)
 assert install, "Linux install commands missing"
@@ -45,10 +45,11 @@ assert install.group(1) == (f'wget "{repo}/releases/download/{linux_tag}/{linux_
 assert f"{repo}/releases/download/{windows_tag}/{windows_asset}" in references.links
 assert f"{repo}/commit/d48d707dcc2d8343f1c54ad1bff456d2621a1929" in references.links
 assert f"{repo}/commit/e8c5d30f605f322b1f4688e1f2cb42d54ddc305b" not in references.links
-assert f"{repo}/commit/d48d707dcc2d8343f1c54ad1bff456d2621a1929" in references.links
-assert f"{repo}/commit/d48d707dcc2d8343f1c54ad1bff456d2621a1929" in references.links
+assert f"{repo}/commit/ccb3ece482ab5d90715a77ebf5e268b8b5e54503" in references.links
+assert f"{repo}/commit/ccb3ece482ab5d90715a77ebf5e268b8b5e54503" in references.links
 assert re.search(r'<code id="mac-sha256">[a-f0-9]{64}</code>', page)
 assert re.search(r'<code id="linux-sha256">[a-f0-9]{64}</code>', page)
+assert "f01426faaf2bab81f45e5f116bba19648744d4c2dac6a151b24d125830bf52d9" in page
 assert re.search(r'<code id="windows-sha256">[a-f0-9]{64}</code>', page)
 assert "Download not available yet" not in page and "@@" not in page
 assert "Browser for the free internet" in page
@@ -59,7 +60,7 @@ assert page.count('class="download"') == 2
 assert "version=" not in page and "SHA256SUMS" not in page and "sha256sum" not in page
 assert "Unknown publisher" in page and "terminal install avoids it" in page
 assert "Not notarized yet" not in page and "Privacy &amp; Security" not in page
-assert "0b2131900068ad5be66a1f065105c972e8e298914fdeebe46521ae50efec481a" in page
+assert "5da6a1fef5adc03d4af0ce8a3ab91751e6d2a18e455d69a07d0e3785a59b55e8" in page
 assert "pubky-newtab-dark.png" not in page and not (ROOT / "assets" / "pubky-newtab-dark.png").exists()
 assert "github.com/MCarlomagno" not in page
 assert references.images and all(not urlsplit(ref).scheme for ref in references.images)

@@ -9,7 +9,7 @@ a:focus-visible{outline:3px solid #C8FF00;outline-offset:5px;border-radius:3px}
 .brand{display:flex;align-items:center;gap:17px;text-decoration:none}
 .brand img{display:block;width:121px;height:40px}
 .brand-label{border-left:1px solid #BFC0C4;padding-left:17px;font-size:15px;letter-spacing:.02em}
-.source,footer a{font-size:14px;font-weight:650;white-space:nowrap}
+.source{font-size:14px;font-weight:650;white-space:nowrap}
 .source{margin-left:auto}
 .hero{padding:clamp(72px,11vw,150px) 0 clamp(92px,11vw,140px);max-width:850px}
 .eyebrow{font-size:12px;font-weight:750;letter-spacing:.15em;text-transform:uppercase;color:#C8FF00}
@@ -34,13 +34,6 @@ h1 em{font-style:normal;color:#C8FF00}
 .copy-status{margin-left:10px;color:#BFC0C4;font-size:13px}
 .install-note{grid-column:1/-1;margin:0;color:#BFC0C4;font-size:13px;line-height:1.5;overflow-wrap:anywhere}
 .install-note a{color:#FFFFFF}
-.build-metadata{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px;margin-top:52px;padding-top:36px;border-top:1px solid #44454A}
-.metadata{margin:0;line-height:1.7;min-width:0}
-.metadata>div+div{margin-top:18px}
-.metadata dt{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#C8FF00}
-.metadata dd{margin:6px 0 0;overflow-wrap:anywhere}
-footer{border-top:1px solid #44454A;padding:28px 0 40px;display:flex;justify-content:space-between;gap:24px;color:#BFC0C4;font-size:13px;line-height:1.5}
-footer a{color:#FFFFFF}
 @media(max-width:900px){.availability{grid-template-columns:1fr}.platform-download:nth-child(2){grid-column:auto;grid-row:auto}}
 @media(max-width:700px){
 .shell{padding:0 22px}
@@ -51,12 +44,9 @@ footer a{color:#FFFFFF}
 .brand-label{padding-left:10px;font-size:12px}
 .hero{padding:75px 0 86px}
 h1{font-size:clamp(43px,10vw,65px)}
-.availability,.build-metadata{grid-template-columns:1fr}
+.availability{grid-template-columns:1fr}
 .availability{width:100%;padding:18px;gap:18px}
 .platform-download{gap:12px}
 .platform-logo{width:32px;height:32px}
 .download{padding:13px}
-.build-metadata{gap:30px}
-.metadata code{word-break:break-all}
-footer{flex-direction:column;gap:10px}
 }

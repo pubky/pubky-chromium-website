@@ -1,4 +1,4 @@
-"""Check the static download page and its release metadata contract."""
+"""Check the static download page and its links."""
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -43,15 +43,7 @@ assert install, "Linux install commands missing"
 assert install.group(1) == (f'wget "{repo}/releases/download/{linux_tag}/{linux_asset}"\n'
                             f'sudo apt install "./{linux_asset}"'), install.group(1)
 assert f"{repo}/releases/download/{windows_tag}/{windows_asset}" in references.links
-assert f"{repo}/commit/ccb3ece482ab5d90715a77ebf5e268b8b5e54503" in references.links
-assert f"{repo}/commit/e8c5d30f605f322b1f4688e1f2cb42d54ddc305b" not in references.links
-assert f"{repo}/commit/8f2e107d6a77965510773f16bdbec3cbf142472f" in references.links
-assert f"{repo}/commit/4143f9e4329fe0eed04aa807c0ee9cf6cf82e105" in references.links
-assert re.search(r'<code id="mac-sha256">[a-f0-9]{64}</code>', page)
-assert re.search(r'<code id="linux-sha256">[a-f0-9]{64}</code>', page)
-assert "09d8e584e9277ea7b607ee119df0be21abe83c8fe0ada0e081574eb6953cb1de" in page
-assert re.search(r'<code id="windows-sha256">[a-f0-9]{64}</code>', page)
-assert "7b5ecf705d020e949172f3728c28677d55517be64412ea7695ac675a731d7a72" in page
+assert '<footer' not in page and 'class="metadata"' not in page
 assert "Download not available yet" not in page and "@@" not in page
 assert "Browser for the free internet" in page
 assert "Censorship resistant" in page and "A familiar browser." not in page
@@ -61,7 +53,6 @@ assert page.count('class="download"') == 2
 assert "version=" not in page and "SHA256SUMS" not in page and "sha256sum" not in page
 assert "Unknown publisher" in page and "terminal install avoids it" in page
 assert "Not notarized yet" not in page and "Privacy &amp; Security" not in page
-assert "f6b0854226cb80e25491305a7ddbedfd86319d8eac0b48c5188da9cfc1ee420e" in page
 assert "pubky-newtab-dark.png" not in page and not (ROOT / "assets" / "pubky-newtab-dark.png").exists()
 assert "github.com/MCarlomagno" not in page
 assert references.images and all(not urlsplit(ref).scheme for ref in references.images)
@@ -75,4 +66,4 @@ for ref in references.links + references.images:
     if url.fragment:
         assert url.fragment in references.ids, ref
 assert not any(p.suffix.lower() in {".zip", ".dmg", ".pkg", ".dylib", ".deb", ".exe"} for p in ROOT.rglob("*"))
-print("Site references, local assets and Mac/Linux/Windows release metadata OK")
+print("Site references, local assets and downloads OK")

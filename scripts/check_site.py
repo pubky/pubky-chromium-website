@@ -33,8 +33,8 @@ references.feed(page)
 repo = "https://github.com/pubky/pubky-chromium"
 mac_tag = "pubky-macos-156.0.8078.48"
 mac_asset = "pubky-chromium-156.0.8078.48-macos-arm64.zip"
-windows_tag = "pubky-windows-156.0.8073.5"
-windows_asset = "pubky-chromium-156.0.8073.5-windows-x64-mini-installer.exe"
+windows_tag = "pubky-windows-156.0.8078.48"
+windows_asset = "pubky-chromium-156.0.8078.48-windows-x64-mini-installer.exe"
 linux_tag = "pubky-linux-156.0.8078.48"
 linux_asset = "pubky-chromium_156.0.8078.48-1_amd64.deb"
 assert f"{repo}/releases/download/{mac_tag}/{mac_asset}" in references.links
